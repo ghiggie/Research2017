@@ -1,0 +1,10 @@
+#!/bin/bash
+#
+# This script will unpack my files.
+
+file=$1
+
+dir=$(echo $file | sed 's/.tar.gz//')
+mkdir $dir
+
+tar -zxf $file -C $dir

@@ -1,0 +1,12 @@
+#!/bin/bash
+#
+# This script will backup my files.
+
+tim=$(date "+%H%M")
+day=$(date "+%m%d%y")
+
+name=backup.$day.$tim
+
+tar -czf $name.tar.gz *.F90 *.tex
+
+mv $name.tar.gz /home/garrett/Dropbox/Research2017/backups
