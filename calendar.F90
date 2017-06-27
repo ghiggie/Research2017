@@ -54,7 +54,7 @@ module calendar
       event(1:max_walkers)%AR = (/ (i,i=1,max_walkers) /)
       event(1:max_walkers)%AL = (/ (i,i=1,max_walkers) /)
       event(1:max_walkers)%BR = (/ (i,i=1,max_walkers) /)
-      event(1:max_walkers)%BR = (/ (i,i=1,max_walkers) /)
+      event(1:max_walkers)%BL = (/ (i,i=1,max_walkers) /)
       
       !*********************************************************      
       ! event_AR(n>max_walkers) contains a pool of empty nodes.*

@@ -23,7 +23,7 @@ module cell
       implicit none
       integer, dimension(:), intent(in) :: cell_index
       integer, dimension(:), intent(out) :: cell_local_walkers
-      integer i, n
+      integer :: i, n
 
       i=cell_list_root(cell_index(X),cell_index(Y),cell_index(Z))
 
