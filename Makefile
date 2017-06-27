@@ -5,7 +5,7 @@ all: code docs clean
 clean:
 	rm -rf *.o *.mod *.aux *.bib *.log
 
-code: global_env.o calendar.o cell.o newseed.o walker.o pool.o rw.o frap.o frapExp.o pooltest.o rw pooltest frapExp
+code: global_env.o calendar.o cell.o newseed.o walker.o pool.o rw.o pooltest.o rw pooltest
 
 global_env.o: global_env.F90
 	gfortran ${OPT} -c global_env.F90
@@ -40,11 +40,11 @@ pooltest: pool.o pooltest.o
 docs: pdfbuilder
 	./pdfbuilder
 
-frap.o: frap.F90
-	gfortran ${OPT} -c frap.F90
+#frap.o: frap.F90
+#	gfortran ${OPT} -c frap.F90
 
-frapExp.o: frapExp.F90
-	gfortran ${OPT} -c frapExp.f90
+#frapExp.o: frapExp.F90
+#	gfortran ${OPT} -c frapExp.f90
 
-frapExp: frapExp.o frap.o calendar.o cell.o newseed.o walker.o
-	gfortran ${OPT} -o frapexp frapExp.o frap.o calendar.o cell.o newseed.o walker.o global_env.o
+#frapExp: frapExp.o frap.o calendar.o cell.o newseed.o walker.o
+#	gfortran ${OPT} -o frapexp frapExp.o frap.o calendar.o cell.o newseed.o walker.o global_env.o
