@@ -84,7 +84,7 @@ program blockrw
     max_walkers = n_walkers + block_walkers
     max_events = 2 * max_walkers
 
-    call calender_init(max_walkers, max_events)
+    call calendar_init(max_walkers, max_events)
 
     call walker_init(max_walkers)
 
@@ -147,7 +147,7 @@ program blockrw
     end do
 
     allocate(p0(n_walkers, 3))
-    p0 = walker_pos(1 : n_walkers, 3)
+    p0 = walker_pos(n_walkers, 3)
 
     call calendar_schedule_event(11, 0, 0, time_stat)
     call calendar_schedule_event(12, 0, 0, time_stat)
