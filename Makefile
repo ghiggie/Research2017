@@ -1,11 +1,11 @@
 OPT=-O3 -mfpmath=sse -ffast-math -fprefetch-loop-arrays -march=native -mtune=native
 
-all: code docs clean
+all: code clean
 
 clean:
 	rm -rf *.o *.mod *.aux *.bib *.log
 
-code: global_env.o calendar.o cell.o newseed.o walker.o pool.o rw.o pooltest.o rw pooltest
+code: global_env.o calendar.o cell.o newseed.o walker.o blockrw.o blockrw
 
 global_env.o: global_env.F90
 	gfortran ${OPT} -c global_env.F90
@@ -22,29 +22,9 @@ newseed.o: newseed.F90
 walker.o: walker.F90
 	gfortran ${OPT} -c walker.F90
 
-pool.o: pool.F90
-	gfortran ${OPT} -c pool.F90
+blockrw.o: blockrw.F90
+	gfortran ${OPT} -c blockrw.F90
 
-rw.o: rw.F90
-	gfortran ${OPT} -c rw.F90
+blockrw: blockrw.o global_env.o calendar.o cell.o newseed.o walker.o
+	gfortran ${OPT} -o blockrw blockrw.o global_env.o calendar.o cell.o newseed.o walker.o
 
-pooltest.o: pooltest.F90
-	gfortran ${OPT} -c pooltest.F90
-
-rw: rw.o global_env.o calendar.o cell.o newseed.o walker.o
-	gfortran ${OPT} -o rw rw.o global_env.o calendar.o cell.o newseed.o walker.o
-
-pooltest: pool.o pooltest.o
-	gfortran ${OPT} -o pooltest pooltest.o pool.o
-
-docs: pdfbuilder
-	./pdfbuilder
-
-#frap.o: frap.F90
-#	gfortran ${OPT} -c frap.F90
-
-#frapExp.o: frapExp.F90
-#	gfortran ${OPT} -c frapExp.f90
-
-#frapExp: frapExp.o frap.o calendar.o cell.o newseed.o walker.o
-#	gfortran ${OPT} -o frapexp frapExp.o frap.o calendar.o cell.o newseed.o walker.o global_env.o
