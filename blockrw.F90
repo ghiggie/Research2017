@@ -161,7 +161,7 @@ program blockrw
             call walker_action(opt1, action)
             call walker_predict_event(opt1)
         else if (action .le. 20) then
-            select(case)
+            select case (action)
                 case(11)
                     sigma = count(walker_pos(1:n_walkers,Z) .gt. box_size(Z))
                     rho = count(walker_pos(1:n_walkers,Z) .eq. box_size(Z))
