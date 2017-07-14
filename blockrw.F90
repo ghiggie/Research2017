@@ -70,7 +70,7 @@ program blockrw
     write(fmain, *) 'Output: onoff.dat'
     open(fdat1, file = 'onoff.dat')
     write(fmain, *) 'Output: diffusion.dat'
-    open(fdat2, file = 'diffusion.dat'
+    open(fdat2, file = 'diffusion.dat')
 
     if (debug) then
         write(fmain, *) 'output: debug.dat'
@@ -156,7 +156,7 @@ program blockrw
     time_current = 0.0_DP
 
     do while (time_current .le. time_limit)
-        call calendar_find_event(action, opt1, op2)
+        call calendar_find_event(action, opt1, opt2)
         if (action .le. 10) then
             call walker_action(opt1, action)
             call walker_predict_event(opt1)
