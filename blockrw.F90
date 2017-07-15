@@ -163,8 +163,8 @@ program blockrw
         else if (action .le. 20) then
             select case (action)
                 case(11)
-                    sigma = count(walker_pos(1:n_walkers,Z) .gt. box_size(Z))
-                    rho = count(walker_pos(1:n_walkers,Z) .eq. box_size(Z))
+                    sigma = count(walker_pos(n_walkers,Z) .gt. box_size(Z))
+                    rho = count(walker_pos(n_walkers,Z) .eq. box_size(Z))
                     write(fdat1,'(f10.2,2e13.5)') time_current, rho, sigma
                     call calendar_schedule_event(11,0,0,time_current+time_stat)
                 case(12)
