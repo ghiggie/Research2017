@@ -168,7 +168,7 @@ program blockrw
                     write(fdat1,'(f10.2,2e13.5)') time_current, rho, sigma
                     call calendar_schedule_event(11,0,0,time_current+time_stat)
                 case(12)
-                    xx = real(sum((walker_pos-p0)**2),kind=DP)/real(n_walkers,kind=DP)
+                    xx = real(sum((walker_pos(n_walkers,3)-p0)**2),kind=DP)/real(n_walkers,kind=DP)
                     write(fdat2,'(f10.2,e13.5)') time_current, xx
                     call calendar_schedule_event(12,0,0,time_current+time_stat)
                 case default

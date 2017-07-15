@@ -29,9 +29,7 @@ contains
 
     end subroutine
 
-    subroutine frap_measure(ratio)
-
-        real(DP), intent(out) :: ratio
+    real(DP) function frap_measure()
 
         integer :: num = 0, denom = 0
         integer :: i
@@ -45,8 +43,8 @@ contains
             end if
         end do
 
-        ratio = num/denom
-
-    end subroutine
+        frap_measure = num * 1.0/denom
+        return
+    end function
 
 end module
