@@ -1,0 +1,16 @@
+ *** KMC FRAP Congested ***
+ Started at 07/14/2017  21:46 
+
+Number of Random Walkers =   500
+Box size =   20x  20x  10
+Cell size =    4x   4x   2
+Block vertex =    5,    5,    2
+Block size =   10,   10,    6
+Transition rate =   1.0000 (3d),   1.0000 (2d)
+Transition rate =   0.1000 (on),   0.0500 (off)
+Total simulation time =       0.100E+05
+
+ Output: onoff.dat
+ Output: diffusion.dat
+Number of collisions =    3945769
+ *** Done at 07/14/2017  21:46  ***
